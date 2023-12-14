@@ -10,6 +10,7 @@
         <a href="index.html">Inicio</a>
         <a href="home.html">Ofertas</a>
         <a href="alumno.html">Mi cuenta</a>
+        <a href="#">Cerrar sesión</a>
     </nav>
 </header>
 
@@ -33,7 +34,7 @@
     </section>
 
     <section class="postulacion">
-        <h2>Postularse a Proyectos (Máximo 3)</h2>
+        <h2>Postularse a Proyectos</h2>
         <!-- Lista de proyectos disponibles -->
         <ul>
             <li>Proyecto 1</li>
