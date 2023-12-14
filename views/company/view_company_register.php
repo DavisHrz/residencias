@@ -2,16 +2,16 @@
 <?php echo "<script>document.title = 'Registro de Empresa';</script>"; ?>
 
 <header>
-    <h1>Termina tu Registro: </h1>
+    <h1>Termina tu Registro</h1>
     <nav>
-        <a href="#">Cerrar Sesión</a>
+        <a href="?operation=1">Cerrar Sesión</a>
       </nav>
   </header>
 
   <main>
     <section class="crear-proyecto">
       <h2>Registro</h2>
-      <form id="registerFinish">
+      <form id="registerFinish" method="post" action="?operation=2">
         <label for="companyName">Razón social:</label>
         <input type="text" id="companyName" name="companyName" required>
 

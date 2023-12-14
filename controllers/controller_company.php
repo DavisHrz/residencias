@@ -10,9 +10,10 @@
                 break;
 
             case 2:
-                //require_once  $pathOperation.'/validation_register.php';
+                require_once  $pathOperation.'/validation_register.php';
                 break;
         }
+        exit();
     }
 
 

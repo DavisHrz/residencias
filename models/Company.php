@@ -10,9 +10,18 @@
             $this->db = $con->connect();
         }
 
-        function register($id, $controlNumber, $name, $lastName, $secondSurName, $phone, $average){
-            $queryINSERT = 'INSERT INTO Alumnos VALUES (null, "'.$id.'", "'.$controlNumber.'", "'.$name.'", "'.$lastName.'", "'.$secondSurName.'", "'.$phone.'", "'.$average.'");';
-			if( mysqli_query($this->db, $queryINSERT )){
+        function register($id, $companyName,  $giro, $phoneCompany, $namePerson, $phoneNumber, $emailPerson){
+            $queryINSERT = 'INSERT INTO Empresas VALUES (null, "'.$id.'", "'.$companyName.'", "'.$giro.'", "'.$phoneCompany.'", "'.$namePerson.'", "'.$emailPerson.'", "'.$phoneNumber.'");';
+            if( mysqli_query($this->db, $queryINSERT )){
+                $this->setFullData($id);
+                return true;
+			}
+	        return false;
+        }
+
+        function setFullData($id){
+            $queryUPDATE = 'UPDATE Usuarios SET DatosLlenos = true WHERE IdUsuario = "'.$id.'";';
+            if( mysqli_query($this->db, $queryUPDATE )){
                 return true;
 			}
 	        return false;

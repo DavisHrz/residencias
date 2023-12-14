@@ -1,5 +1,6 @@
 <?php
     session_start();
+    //session_destroy();
     
     require_once 'models/DataBase.php';
 
@@ -38,7 +39,7 @@
     
         case 'Empresa':
             require_once 'models/Company.php';
-            $companie = new Company();
+            $company = new Company();
 
             require_once './controllers/controller_company.php';
             break;

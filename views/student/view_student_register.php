@@ -2,9 +2,9 @@
 <?php echo "<script>document.title = 'Registro de Alumno';</script>"; ?>
 
 <header>
-    <h1>Termina tu Registro: </h1>
+    <h1>Termina tu Registro</h1>
     <nav>
-        <a href="#">Cerrar Sesión</a>
+        <a href="?operation=1">Cerrar Sesión</a>
       </nav>
   </header>
 
