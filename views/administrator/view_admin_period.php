@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="css/administrador.css">
+<?php echo "<script>document.title = 'Panel de Administrador';</script>"; ?>
+
+<header>
+    <h1>Bienvenido, Administrador</h1>
+    <nav>
+      <a href="administrador.html">Inicio</a>
+      <a href="home.html">Ofertas</a>
+      <a href="usersRequest.html">Solicitudes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="tareas">
+      <h2 class="admin-tittle">Tareas de Administrador</h2>
+      <h2 class="admin-period" >Periodo 2023-2</h2>
+      <ul>
+        <!-- Agrega botones o enlaces para realizar estas tareas -->
+        </div>
+        <button class="tareaBtn" data-tarea="Emitir Reporte">Emitir Reporte</button>
+        <button class="tareaBtn" data-tarea="Asignar Personal">Asignar Personal</button>
+        <button class="tareaBtn" data-tarea="Actualizar Datos">Actualizar Datos</button>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Panel de Administrador</p>
+  </footer>
