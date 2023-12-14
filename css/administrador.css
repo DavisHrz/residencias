@@ -110,6 +110,14 @@ button.tareaBtn {
   justify-content: center;
   margin-bottom: 15px;
 }
+.period-input{
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  
+}
 nav {
   background-color: #1b396a;
   color: white;
