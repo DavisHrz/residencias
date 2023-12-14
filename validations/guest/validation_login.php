@@ -12,6 +12,8 @@
         if($guest->login()){
             $_SESSION["id"] = $guest->id;
             $_SESSION["rol"] = $guest->rol;
+            $_SESSION["registerConfirm"] = $guest->confirm;
+            $_SESSION["isFullData"] = $guest->fullData;
 
             header("Location: index.php");
             exit();
