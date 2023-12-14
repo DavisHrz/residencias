@@ -2,14 +2,14 @@
 <?php echo "<script>document.title = 'Registro de Empresa';</script>"; ?>
 
 <header>
-    <h1>Termina tu Registro: </h1>
+    <h1>Termina tu Registro </h1>
   </header>
 
   <main>
     <section class="crear-proyecto">
       <h2>Registro</h2>
       <form id="registerFinish">
-        <label for="companyName">Nombre de la empresa:</label>
+        <label for="companyName">Razón social:</label>
         <input type="text" id="companyName" name="companyName" required>
 
         <label for="giro">Giro de la empresa:</label>
@@ -18,8 +18,6 @@
         <label for="phoneCompany">Telefono de la empresa:</label>
         <input type="tel" id="phoneCompany" name="phoneCompany" required>
 
-        <label for="companyEmail">Correo de la empresa:</label>
-        <input type="email" id="companyEmail" name="companyEmail" required>
         <h3>Persona de Contacto</h3>
         <label for="namePerson">Nombre Completo:</label>
         <input type="text" id="namePerson" name="namePerson" required>

@@ -8,7 +8,7 @@
   <main>
     <section class="crear-proyecto">
       <h2>Registro</h2>
-      <form id="registerFinish">
+      <form id="registerFinish" method="post" action="?operation=2">
         <label for="controlNumber">Número de Control:</label>
         <input type="text" id="controlNumber" name="controlNumber" required>
 
@@ -24,8 +24,12 @@
         <label for="phoneNumber">Telefono</label>
         <input type="tel" id="phoneNumber" name="phoneNumber" required>
 
+        <label for="average">Promedio</label>
+        <input type="number" id="average" name="average" required>
+
         <button type="submit">Enviar</button>
       </form>
+
     </section>
   </main>
 

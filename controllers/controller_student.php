@@ -10,7 +10,7 @@
                 break;
 
             case 2:
-                //require_once  $pathOperation.'/validation_register.php';
+                require_once  $pathOperation.'/validation_register.php';
                 break;
         }
     }
@@ -22,7 +22,7 @@
         require_once './views/view_wait.php';
         
     }else if($_SESSION['isFullData'] == false){
-        echo "Hello alu";
+        require_once $pathView.'/view_student_register.php';
 
     }else  if($pageIsExist && $pageIsNotEmpty){
         $pageNumber = $_GET['page'];

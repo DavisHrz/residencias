@@ -2,7 +2,7 @@
 
     if($operationIsNotEmpty && $operationIsExist){
         $operation = $_GET['operation'];
-        $pathOperation = './validations/companie';
+        $pathOperation = './validations/company';
 
         switch ($operation) {
             case 1:
@@ -16,13 +16,13 @@
     }
 
 
-    $pathView = './views/companie';
+    $pathView = './views/company';
 
     if($_SESSION['registerConfirm'] == false){
         require_once './views/view_wait.php';
         
     }else if($_SESSION['isFullData'] == false){
-        echo "Hello comp";
+        require_once $pathView.'/view_company_register.php';
 
     }else  if($pageIsExist && $pageIsNotEmpty){
         $pageNumber = $_GET['page'];

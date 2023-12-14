@@ -37,10 +37,10 @@
             break;
     
         case 'Empresa':
-            require_once 'models/Companie.php';
-            $companie = new Companie();
+            require_once 'models/Company.php';
+            $companie = new Company();
 
-            require_once './controllers/controller_assessor.php';
+            require_once './controllers/controller_company.php';
             break;
 
         case 'Administrador':

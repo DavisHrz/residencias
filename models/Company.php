@@ -1,5 +1,5 @@
 <?php
-    class Student{
+    class Company{
         var $id;
         var $name;
         var $password;
