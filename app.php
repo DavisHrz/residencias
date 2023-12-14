@@ -1,18 +1,9 @@
 <?php
     session_start();
     require_once 'models/DataBase.php';
-    require_once 'models/Guest.php';
-    require_once 'models/Administrator.php';
-    require_once 'models/Student.php';
-    require_once 'models/Assessor.php';
-    require_once 'models/Companie.php';
 
     $database = new DataBase();
     $guest = new Guest();
-    $admin = new Administrator();
-    $assessor = new Assessor();
-    $student = new Student();
-    $companie = new Companie();
 
     $pageIsNotEmpty = !empty($_GET['page']);
     $pageIsExist = isset($_GET['page']);
@@ -25,24 +16,38 @@
     
     switch ($userRol) {
         case 'invitado':
+            require_once 'models/Guest.php';
+            $guest = new Guest();
+
             require_once './controllers/controller_guest.php';
             break;
 
         case 'Alumno':
-            //require_once './controllers/controller_student.php';
+            require_once 'models/Student.php';
+            $student = new Student();
+
+            require_once './controllers/controller_student.php';
             break;
 
-        case 'Asesor':
-            //require_once './controllers/controller_assessor.php';
+        case 'Maestro':
+            require_once 'models/Assessor.php';
+            $assessor = new Assessor();
+
+            require_once './controllers/controller_assessor.php';
             break;
     
         case 'Empresa':
-            //require_once './controllers/controller_assessor.php';
+            require_once 'models/Companie.php';
+            $companie = new Companie();
+
+            require_once './controllers/controller_assessor.php';
             break;
 
         case 'Administrador':
-            # code...
-            //require_once './controllers/controller_administrator.php';
+            require_once 'models/Administrator.php';
+            $admin = new Administrator();
+
+            require_once './controllers/controller_administrator.php';
             break;
 
         default:
