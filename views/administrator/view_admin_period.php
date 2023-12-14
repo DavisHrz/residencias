@@ -1,19 +1,11 @@
 <link rel="stylesheet" href="css/administrador.css">
 <?php echo "<script>document.title = 'Panel de Administrador';</script>"; ?>
 
-<header>
-    <h1>Bienvenido, Administrador</h1>
-    <nav>
-      <a href="administrador.html">Inicio</a>
-      <a href="home.html">Ofertas</a>
-      <a href="usersRequest.html">Solicitudes</a>
-    </nav>
-  </header>
 
   <main>
     <section class="tareas">
       <h2 class="admin-tittle">Tareas de Administrador</h2>
-      <h2 class="admin-period" >Periodo 2023-2</h2>
+      <h2 class="admin-period" ><?php echo $_SESSION["semestre"] ?></h2>
       <ul>
         <!-- Agrega botones o enlaces para realizar estas tareas -->
         </div>

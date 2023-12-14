@@ -17,6 +17,17 @@
 
             header("Location: index.php");
             exit();
+        }else{
+            echo "<script>
+                Swal.fire({
+                    title: 'Credenciales no validas',
+                    icon: 'error',
+                    timer: 3000,
+                    showConfirmButton: false
+                }).then((result) => {
+                    window.location.href = 'index.php';
+                });
+            </script>";
         }
     }else{
         echo "<script>

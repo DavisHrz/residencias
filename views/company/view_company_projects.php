@@ -1,16 +1,6 @@
 <link rel="stylesheet" href="css/empresaProyectos.css">
 <?php echo "<script>document.title = 'Proyectos vigentes';</script>"; ?>
 
-<header>
-        <h1>Proyectos de la Empresa</h1>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="home.html">Ofertas</a>
-            <a href="perfilEmpresa.html">Mi cuenta</a>
-            <a href="empresaProyectos.html">Proyectos</a>
-            <a href="#">Cerrar sesión</a>
-        </nav>
-    </header>
     
     <main>
         <section class="proyectos">
@@ -29,7 +19,7 @@
 
             <!-- Botón para agregar nuevo proyecto -->
             <div class="agregar-proyecto">
-                <a href="crearProyecto.html" class="agregar-btn">Agregar Nuevo Proyecto</a>
+                <a href="?page=2" class="agregar-btn">Agregar Nuevo Proyecto</a>
             </div>
         </section>
     </main>

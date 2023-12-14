@@ -13,6 +13,7 @@
                 require_once  $pathOperation.'/validation_register.php';
                 break;
         }
+        exit();
     }
 
 

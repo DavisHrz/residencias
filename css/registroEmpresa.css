@@ -8,7 +8,7 @@ body {
   }
   
   header, footer {
-    background-color:#1b396a;
+    background-color: #1b396a;
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -22,10 +22,10 @@ body {
   }
   
   section {
-    width: 45%;
+    width: 60%;
     margin-bottom: 30px;
     background-color: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -33,11 +33,44 @@ body {
   h2 {
     margin-top: 0;
     font-size: 24px;
-    color: #1b396a;
+    color: #283747;
   }
   
-  .info p {
+  form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form input[type="text"],
+  form input[type="tel"],
+  form input[type="number"],
+  form input[type="email"] {
+    width: 100%;
+    padding: 8px;
     margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+ 
+  form textarea {
+    resize: vertical;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #009341;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  form button:hover {
+    background-color: #03ad50;
   }
   nav {
     background-color: #1b396a;
@@ -45,16 +78,15 @@ body {
     text-align: center;
     padding: 10px 0;
   }
-  
+
   nav a {
     color: white;
     text-decoration: none;
     margin: 0 10px;
   }
-  
+
   nav a:hover {
     background-color: #fff;
     color: #000;
     border-radius: 5px;
-    padding: 3px;
   }

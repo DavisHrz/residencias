@@ -59,34 +59,35 @@
 
 
     }else {
-
+        $admin->getSemester();
+        
         if($pageIsExist && $pageIsNotEmpty){
             $pageNumber = $_GET['page'];
     
             switch ($pageNumber) {
                 case 1:
-                    //require_once $pathView.'/view_header1.php';
-                    //require_once $pathView.'/view_select_semester.php';
+                    require_once $pathView.'/view_header2.php';
+                    require_once $pathView.'/view_admin_period.php';
                     break;
                 
                 case 2:
-                    //require_once $pathView.'/view_header1.php';
-                    //require_once $pathView.'/view_add_semester.php';
+                    require_once $pathView.'/view_header2.php';
+                    require_once $pathView.'/view_admin_offers.php';
                     break;
     
                 case 3:
-                    //require_once $pathView.'/view_header1.php';
-                    //require_once $pathView.'/view_registration_request.php';
+                    require_once $pathView.'/view_header2.php';
+                    require_once $pathView.'/view_registration_request.php';
                     break;
                 
                 default:
-                    //require_once $pathView.'/view_header1.php';
-                    //require_once $pathView.'/view_select_semester.php';
+                    require_once $pathView.'/view_header2.php';
+                    require_once $pathView.'/view_admin_period.php';
                     break;
             }
         }else{
-            //require_once $pathView.'/view_header1.php';
-            //require_once $pathView.'/view_select_semester.php';
+            require_once $pathView.'/view_header2.php';
+            require_once $pathView.'/view_admin_period.php';
         }
     }
 
