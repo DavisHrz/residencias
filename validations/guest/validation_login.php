@@ -18,6 +18,18 @@
             header("Location: index.php");
             exit();
         }
+    }else{
+        echo "Hello";
+        echo "<script>
+                Swal.fire({
+                    title: 'Llene todos los campos',
+                    icon: 'error',
+                    timer: 3000,
+                    showConfirmButton: false
+                }).then((result) => {
+                    window.location.href = 'index.php';
+                });
+            </script>";
     }
 
 ?>

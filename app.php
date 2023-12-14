@@ -3,7 +3,6 @@
     require_once 'models/DataBase.php';
 
     $database = new DataBase();
-    $guest = new Guest();
 
     $pageIsNotEmpty = !empty($_GET['page']);
     $pageIsExist = isset($_GET['page']);

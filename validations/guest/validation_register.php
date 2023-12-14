@@ -1,7 +1,5 @@
 <?php
 
-    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
     if( isset($_POST['email']) && !empty($_POST['email']) &&
     isset($_POST['password']) && !empty($_POST['password']) &&
     isset($_POST['rol']) && !empty($_POST['rol']) ){
