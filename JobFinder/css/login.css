@@ -1,0 +1,89 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.left-form{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    background: #ffffff url('../images/itver-letras.jpg') no-repeat center;
+    background-size: cover;
+    
+}
+.logo{
+    width: 200px;
+    float: left;
+    margin-left: 250px;
+    margin-top: 200px;  
+}
+.right-form{
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    float: left;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+.right-form form{
+    height: 100%;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.right-form h2{
+    font-size: 2em;
+    color: #1b396a;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.right-form form > input {
+    width: 100%;
+    padding: 10px 0;
+    padding-left: 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.right-form label{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+.check{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    float: left;
+}
+/*.check-register{
+    margin-left: 50px;
+}
+.check-password{
+    margin-left: 40px;
+}*/
+.right-form input[type="submit"]{
+    width: 100%;
+    background-color: #1b396a;
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+    padding: 8px 30px;
+}
+.right-form input[type="submit"]:hover{
+    cursor: pointer;
+}

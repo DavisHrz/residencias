@@ -1,0 +1,146 @@
+html{
+    font-size: 62.5%; /* Para que 1rem = 10px*/
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-size: 1.3rem;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("../images/itver-letras.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form{
+    /*background-color: rgb(21, 98, 223);*/
+    background-color: #fff;
+    padding: 3px;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    text-align: center;
+}
+.container{
+    padding: 15px;
+    width: 100%;
+}
+.container-input{
+    font-size: 22px;
+    color: #283747;
+    border: solid 1px #ccc;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+input[type="text"]{
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    border: none;
+    margin-left: 10px;
+    width: 95%;
+}
+
+input[type="tel"]{
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    border: none;
+    margin-left: 10px;
+    width: 95%;
+}
+
+input[type="email"]{
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    border: none;
+    margin-left: 10px;
+    width: 95%;
+}
+
+input[type="password"]{
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    border: none;
+    margin-left: 10px;
+    width: 95%;
+}
+
+.button{
+    margin-top: 20px;
+}
+
+input[type="submit"]{
+    width: 100%;
+    padding: 15px;
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: #283747;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover{
+    background-color: cadetblue;
+    font-weight: bold;
+}
+
+p{
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+}
+
+.link{
+    color: blue;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: red;
+}
+
+/* Responsive */
+@media screen and (min-width: 767px) {
+   .form{
+    margin: auto;
+    width: 500px;
+    margin-top: 50px;
+    padding: 15px;
+    border-radius: 25px;
+
+   }
+   .container-input{
+        font-size: 19px;
+        padding: 10px;
+        margin-right: 20px;
+    }
+    input[type="text"]{
+        width: 90%;
+        font-size: 18px;
+    }
+    input[type="tel"]{
+        width: 90%;
+        font-size: 18px;
+    }
+    input[type="email"]{
+        width: 90%;
+        font-size: 18px;
+    }
+    input[type="password"]{
+        width: 90%;
+        font-size: 18px;
+    }
+    input[type="submit"]{
+        width: 96%;
+        font-size: 18px;
+    }
+    p{
+        font-size: 20px;
+        padding: 0px 15;
+    }
+}
