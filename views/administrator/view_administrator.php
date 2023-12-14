@@ -3,24 +3,39 @@
 
 <header>
     <h1>Bienvenido, Administrador</h1>
-</header>
+    <nav>
+      <a href="administrador.html">Inicio</a>
+      <a href="home.html">Ofertas</a>
+      <a href="usersRequest.html">Solicitudes</a>
+    </nav>
+  </header>
 
-<main>
+  <main>
     <section class="tareas">
-        <h2>Tareas de Administrador</h2>
-        <ul>
-            <!-- Agrega botones o enlaces para realizar estas tareas -->
-            <button class="tareaBtn" data-tarea="Cerrar Semestre">Cerrar Semestre</button>
-            <button class="tareaBtn" data-tarea="Abrir Nuevo Semestre">Abrir Nuevo Semestre</button>
-            <button class="tareaBtn" data-tarea="Emitir Reporte">Emitir Reporte</button>
-            <button class="tareaBtn" data-tarea="Asignar Personal">Asignar Personal</button>
-            <button class="tareaBtn" data-tarea="Actualizar Datos">Actualizar Datos</button>
-            <br><hr>
-            <button class="tareaBtn" onclick="window.location.href = '?operation=1';">Cerrar sesión</button>
-        </ul>
+      <h2 class="admin-tittle">Tareas de Administrador</h2>
+      <!-- Lista de tareas -->
+      <ul>
+        <!-- Agrega botones o enlaces para realizar estas tareas -->
+        <div class="period-section">
+          <form method="post" action="">
+            <select name="Periodo" id="">
+                <option value="2023-2">Agosto-Diciembre 2023</option>
+                <option value="2023-1">Enero-Junio 2023</option>
+                <option value="2022-2">Agosto-Diciembre 2022</option>
+                <option value="2022-1">Enero-Junio 2022</option>
+                <option value="2021-2">Agosto-Diciembre 2021</option>
+                <option value="2021-1">Enero-Junio 2021</option>
+            </select>
+            <div class="button">
+              <button class="bttn" type="submit">Seleccionar</button>
+          </div>
+              </form>
+          </div>
+        </div>
+      </ul>
     </section>
-</main>
+  </main>
 
-<footer>
+  <footer>
     <p>&copy; 2023 Panel de Administrador</p>
-</footer>
+  </footer>
