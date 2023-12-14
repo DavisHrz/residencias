@@ -3,8 +3,6 @@
 
     class Administrator{
         var $id;
-        var $name;
-        var $password;
         var $db;
 
         function __construct(){
@@ -12,33 +10,68 @@
             $this->db = $con->connect();
         }
 
-        function login(){
-            $querySELECT = 'SELECT * FROM users WHERE name="'.$this->name.'" AND password="'.md5($this->password).'"; ';
-			if($queryDB = mysqli_query($this->db, $querySELECT)){
-                $result = mysqli_fetch_assoc($queryDB);
-                $this->id = $result["idUser"];
-                $this->name = $result["name"];
-			    $this->password = $result["password"];
+        function getSemestres(){
+            $semestres = array();
+            $querySELECT = 'SELECT * FROM Semestres;';
+			if( $queryDB = mysqli_query($this->db, $querySELECT )){
+                while ( $result = mysqli_fetch_assoc($queryDB) ){
+                    $semestre = array();
+                    array_push($semestre, $result["IdSemestre"]);
+                    array_push($semestre, $result["Semestre"]);
+                    array_push($semestre, $result["Estado"]);
+
+                    array_push($semestres, $semestre);
+                }
+			}
+	        return $semestres;
+        }
+
+        function addSemester($periodo){
+            $queryINSERT = 'INSERT INTO Semestres VALUES (null, "'.$periodo.'", true)';
+			if( mysqli_query($this->db, $queryINSERT )){
+                return true;
+			}
+	        return false;
+        }
+
+        function endSemester($idSemestre){
+            $queryUPDATE = 'UPDATE Semestres SET Estado = false WHERE IdSemestre = "'.$idSemestre.'";';
+			if(mysqli_query($this->db, $queryUPDATE)){
 			    return true;
 			}
 	        return false;
         }
 
-        function get_all_applications(){
-            $applications = array();
-            $querySELECT = 'SELECT * FROM application;';
+        function getRequestRegister(){
+            $users = array();
+            $querySELECT = 'SELECT u.*, r.Rol FROM usuarios AS u, roles AS r WHERE u.IdRol = r.IdRol AND Confirmado = false;';
 			if( $queryDB = mysqli_query($this->db, $querySELECT )){
                 while ( $result = mysqli_fetch_assoc($queryDB) ){
-                    $application = array();
-                    array_push($application, $result["idApplication"]);
-                    array_push($application, $result["idAlumno"]);
-                    array_push($application, $result["name"]);
-                    array_push($application, $result["data"]);
+                    $user = array();
+                    array_push($user, $result["IdUsuario"]);
+                    array_push($user, $result["Correo"]);
+                    array_push($user, $result["Rol"]);
 
-                    array_push($applications, $application);
+                    array_push($users, $user);
                 }
 			}
-	        return $applications;
+	        return $users;
+        }
+
+        function declineRegistration($idUsuario){
+            $queryDELETE = 'DELETE FROM usuarios WHERE IdUsuario = "'.$idUsuario.'";';
+            if(mysqli_query($this->db, $queryDELETE)){
+                return true;
+            }
+            return false;
+        }
+
+        function acceptRegistration($idUsuario){
+            $queryDELETE = 'UPDATE Usuarios SET Confirmado = true WHERE IdUsuario = "'.$idUsuario.'";';
+            if(mysqli_query($this->db, $queryDELETE)){
+                return true;
+            }
+            return false;
         }
 
     }
