@@ -19,7 +19,6 @@
             exit();
         }
     }else{
-        echo "Hello";
         echo "<script>
                 Swal.fire({
                     title: 'Llene todos los campos',

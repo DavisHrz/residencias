@@ -10,7 +10,15 @@
                 break;
 
             case 2:
-                //require_once  $pathOperation.'/validation_register.php';
+                require_once  $pathOperation.'/validation_select_semester.php';
+                break;
+            
+            case 3:
+                require_once  $pathOperation.'/validation_add_semester.php';
+                break;
+
+            case 4:
+                require_once  $pathOperation.'/validation_registration.php';
                 break;
         }
     }
@@ -18,30 +26,68 @@
 
     $pathView = './views/administrator';
 
-    if($_SESSION['registerConfirm'] == false){
-        require_once './views/view_wait.php';
-        
-    }else if($_SESSION['isFullData'] == false){
-        echo "Hello adm";
+    if( empty($_SESSION['idSemestre']) ){
 
-    }else  if($pageIsExist && $pageIsNotEmpty){
-        $pageNumber = $_GET['page'];
-
-        switch ($pageNumber) {
-            case 1:
-                require_once $pathView.'/view_administrator.php';
-                break;
-            
-            case 2:
-                //require_once  $pathView.'/view_register.php';
-                break;
-            
-            default:
-            require_once $pathView.'/view_administrator.php';
-                break;
+        if($pageIsExist && $pageIsNotEmpty){
+            $pageNumber = $_GET['page'];
+    
+            switch ($pageNumber) {
+                case 1:
+                    require_once $pathView.'/view_header1.php';
+                    require_once $pathView.'/view_select_semester.php';
+                    break;
+                
+                case 2:
+                    require_once $pathView.'/view_header1.php';
+                    require_once $pathView.'/view_add_semester.php';
+                    break;
+    
+                case 3:
+                    require_once $pathView.'/view_header1.php';
+                    require_once $pathView.'/view_registration_request.php';
+                    break;
+                
+                default:
+                    require_once $pathView.'/view_header1.php';
+                    require_once $pathView.'/view_select_semester.php';
+                    break;
+            }
+        }else{
+            require_once $pathView.'/view_header1.php';
+            require_once $pathView.'/view_select_semester.php';
         }
-    }else{
-        require_once $pathView.'/view_administrator.php';
+
+
+    }else {
+
+        if($pageIsExist && $pageIsNotEmpty){
+            $pageNumber = $_GET['page'];
+    
+            switch ($pageNumber) {
+                case 1:
+                    //require_once $pathView.'/view_header1.php';
+                    //require_once $pathView.'/view_select_semester.php';
+                    break;
+                
+                case 2:
+                    //require_once $pathView.'/view_header1.php';
+                    //require_once $pathView.'/view_add_semester.php';
+                    break;
+    
+                case 3:
+                    //require_once $pathView.'/view_header1.php';
+                    //require_once $pathView.'/view_registration_request.php';
+                    break;
+                
+                default:
+                    //require_once $pathView.'/view_header1.php';
+                    //require_once $pathView.'/view_select_semester.php';
+                    break;
+            }
+        }else{
+            //require_once $pathView.'/view_header1.php';
+            //require_once $pathView.'/view_select_semester.php';
+        }
     }
 
 ?>
