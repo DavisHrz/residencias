@@ -8,6 +8,7 @@
         <a href="home.html">Ofertas</a>
         <a href="empresa.html">Mi cuenta</a>
         <a href="crearProyecto.html">Nuevo Proyecto</a>
+        <a href="#">Cerrar sesión</a>
       </nav>
   </header>
 
