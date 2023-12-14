@@ -26,6 +26,16 @@
 	        return $semestres;
         }
 
+        function getSemester(){
+            $querySELECT = 'SELECT * FROM Semestres WHERE IdSemestre = "'.$_SESSION["idSemestre"].'";';
+			if( $queryDB = mysqli_query($this->db, $querySELECT )){
+                $result = mysqli_fetch_assoc($queryDB);
+                $_SESSION["semestre"] = $result["Semestre"];
+                return true;
+			}
+	        return false;
+        }
+
         function addSemester($periodo){
             $queryINSERT = 'INSERT INTO Semestres VALUES (null, "'.$periodo.'", true)';
 			if( mysqli_query($this->db, $queryINSERT )){
@@ -44,7 +54,7 @@
 
         function getRequestRegister(){
             $users = array();
-            $querySELECT = 'SELECT u.*, r.Rol FROM usuarios AS u, roles AS r WHERE u.IdRol = r.IdRol AND Confirmado = false;';
+            $querySELECT = 'SELECT u.*, r.Rol FROM Usuarios AS u, roles AS r WHERE u.IdRol = r.IdRol AND Confirmado = false;';
 			if( $queryDB = mysqli_query($this->db, $querySELECT )){
                 while ( $result = mysqli_fetch_assoc($queryDB) ){
                     $user = array();
@@ -59,7 +69,7 @@
         }
 
         function declineRegistration($idUsuario){
-            $queryDELETE = 'DELETE FROM usuarios WHERE IdUsuario = "'.$idUsuario.'";';
+            $queryDELETE = 'DELETE FROM Usuarios WHERE IdUsuario = "'.$idUsuario.'";';
             if(mysqli_query($this->db, $queryDELETE)){
                 return true;
             }

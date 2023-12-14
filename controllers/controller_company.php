@@ -18,6 +18,7 @@
 
 
     $pathView = './views/company';
+    $company->getData();
 
     if($_SESSION['registerConfirm'] == false){
         require_once './views/view_wait.php';
@@ -30,19 +31,28 @@
 
         switch ($pageNumber) {
             case 1:
-                //require_once $pathView.'/view_login.php';
+                require_once $pathView.'/view_header.php';
+                require_once $pathView.'/view_company.php';
                 break;
             
             case 2:
-                //require_once  $pathView.'/view_register.php';
+                require_once $pathView.'/view_header.php';
+                require_once  $pathView.'/view_create_proyect.php';
+                break;
+
+            case 3:
+                require_once $pathView.'/view_header.php';
+                require_once  $pathView.'/view_company_projects.php';
                 break;
             
             default:
-                //require_once $pathView.'/view_login.php';
+                require_once $pathView.'/view_header.php';
+                require_once $pathView.'/view_company.php';
                 break;
         }
     }else{
-        //require_once $pathView.'/view_login.php';
+        require_once $pathView.'/view_header.php';
+        require_once $pathView.'/view_company.php';
     }
 
 ?>

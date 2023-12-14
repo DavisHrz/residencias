@@ -2,6 +2,7 @@
 
     if( isset($_POST['companyName']) && !empty($_POST['companyName']) &&
     isset($_POST['giro']) && !empty($_POST['giro']) &&
+    isset($_POST['direccion']) && !empty($_POST['direccion']) &&
     isset($_POST['phoneCompany']) && !empty($_POST['phoneCompany']) &&
     isset($_POST['namePerson']) && !empty($_POST['namePerson']) &&
     isset($_POST['phoneNumber']) && !empty($_POST['phoneNumber']) && 
@@ -9,12 +10,13 @@
 
         $companyName = $_POST['companyName'];
         $giro = $_POST['giro'];
+        $direccion = $_POST['direccion'];
         $phoneCompany = $_POST['phoneCompany'];
         $namePerson = $_POST['namePerson'];
         $phoneNumber = $_POST['phoneNumber'];
         $emailPerson = $_POST['emailPerson'];
 
-        if($company->register($_SESSION['id'], $companyName,  $giro, $phoneCompany, $namePerson, $phoneNumber, $emailPerson)){
+        if($company->register($_SESSION['id'], $companyName,  $giro, $direccion, $phoneCompany, $namePerson, $phoneNumber, $emailPerson)){
             $_SESSION["isFullData"] = true;
 
             echo "<script>

@@ -1,16 +1,6 @@
 <link rel="stylesheet" href="css/crearProyecto.css">
 <?php echo "<script>document.title = 'Crear Proyecto';</script>"; ?>
 
-<header>
-    <h1>Crear Proyecto</h1>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="home.html">Ofertas</a>
-        <a href="empresa.html">Mi cuenta</a>
-        <a href="crearProyecto.html">Nuevo Proyecto</a>
-        <a href="#">Cerrar sesión</a>
-      </nav>
-  </header>
 
   <main>
     <section class="crear-proyecto">

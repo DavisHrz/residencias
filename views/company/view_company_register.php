@@ -18,6 +18,9 @@
         <label for="giro">Giro de la empresa:</label>
         <input type="text" id="giro" name="giro" required></input>
 
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required></input>
+
         <label for="phoneCompany">Telefono de la empresa:</label>
         <input type="tel" id="phoneCompany" name="phoneCompany" required>
 

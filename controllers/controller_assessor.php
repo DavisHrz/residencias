@@ -29,6 +29,7 @@
 
         switch ($pageNumber) {
             case 1:
+                
                 //require_once $pathView.'/view_login.php';
                 break;
             

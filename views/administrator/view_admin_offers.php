@@ -4,15 +4,7 @@
     <link rel="stylesheet" href="css/home.css">
     <?php echo "<script>document.title = 'Ofertas';</script>"; ?>
 
-    <header>
-    <nav>
-      <a href="administrador.html">Seleccionar Periodo</a>
-      <a href="añadirPeriodo.html">Añadir Periodo</a>
-      <a href="home.html">Ofertas</a>
-      <a href="usersRequest.html">Solicitudes</a>
-      <a href="#">Cerrar Sesión</a>
-    </nav>
-    </header>
+
     <main>
         <section class="vacantes">
             <h2>Vacantes</h2>

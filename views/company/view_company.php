@@ -1,34 +1,23 @@
 <link rel="stylesheet" href="css/perfilEmpresa.css">
 <?php echo "<script>document.title = 'Panel de Empresa';</script>"; ?>
 
-<header>
-    <h1>Bienvenido, Empresa</h1>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="home.html">Ofertas</a>
-        <a href="perfilEmpresa.html">Mi cuenta</a>
-        <a href="crearProyecto.html">Nuevo Proyecto</a>
-        <a href="#">Cerrar sesión</a>
-      </nav>
-  </header>
-
   <main>
     <section class="datos-empresa">
       <h2>Datos Generales de la Empresa</h2>
       <div class="info">
-        <p><strong>Dirección:</strong> Calle Principal, 123</p>
-        <p><strong>Giro:</strong> Tecnología</p>
-        <p><strong>Teléfono:</strong> 123-456-7890</p>
-        <p><strong>Correo:</strong> empresa@ejemplo.com</p>
+        <p><strong>Dirección:</strong> <?php echo $_SESSION["direccion"] ?></p>
+        <p><strong>Giro:</strong> <?php echo $_SESSION["giro"] ?></p>
+        <p><strong>Teléfono:</strong> <?php echo $_SESSION["telefono"] ?></p>
+        <p><strong>Correo:</strong> <?php echo $_SESSION["correo"] ?></p>
       </div>
     </section>
 
     <section class="contacto">
       <h2>Persona de Contacto</h2>
       <div class="info">
-        <p><strong>Nombre:</strong> Nombre de la persona</p>
-        <p><strong>Teléfono de Contacto:</strong> 987-654-3210</p>
-        <p><strong>Correo de Contacto:</strong> contacto@empresa.com</p>
+        <p><strong>Nombre:</strong> <?php echo $_SESSION["asesor"] ?></p>
+        <p><strong>Teléfono de Contacto:</strong> <?php echo $_SESSION["telefonoAsesor"] ?></p>
+        <p><strong>Correo de Contacto:</strong> <?php echo $_SESSION["correoAsesor"] ?></p>
       </div>
     </section>
   </main>

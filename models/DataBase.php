@@ -7,11 +7,18 @@
         var $port;
 
         function __construct(){
+
             $this->host = "localhost";
             $this->user = "root";
             $this->password = "root";
             $this->database = "residencias";
             $this->port = "3307"; 
+
+            // $this->host = "localhost";
+            // $this->user = "u117281852_rp02";
+            // $this->password = "Rp021213$";
+            // $this->database = "u117281852_rp02";
+            // $this->port = "3306"; 
         }
 
         function connect(){

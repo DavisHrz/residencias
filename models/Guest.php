@@ -15,7 +15,7 @@
         }
 
         function login(){
-            $querySELECT = 'SELECT u.*, r.Rol FROM usuarios AS u, roles AS r WHERE u.IdRol = r.IdRol AND u.Correo="'.$this->email.'" AND u.Contrasena="'.md5($this->password).'"; ';
+            $querySELECT = 'SELECT u.*, r.Rol FROM Usuarios AS u, Roles AS r WHERE u.IdRol = r.IdRol AND u.Correo="'.$this->email.'" AND u.Contrasena="'.md5($this->password).'"; ';
 			if($queryDB = mysqli_query($this->db, $querySELECT)){
                 if($result = mysqli_fetch_assoc($queryDB)){
                     $this->id = $result["IdUsuario"];
@@ -29,7 +29,7 @@
         }
 
         function register(){
-            $querySELECT = 'INSERT INTO usuarios VALUES (null, "'.$this->idRol.'", "'.$this->email.'", "'.md5($this->password).'", false, false, now()); ';
+            $querySELECT = 'INSERT INTO Usuarios VALUES (null, "'.$this->idRol.'", "'.$this->email.'", "'.md5($this->password).'", false, false, now()); ';
 			if(mysqli_query($this->db, $querySELECT)){
 			    return true;
 			}

@@ -8,7 +8,7 @@ body {
   }
   
   header, footer {
-    background-color: #283747;
+    background-color:#1b396a;
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -33,10 +33,28 @@ body {
   h2 {
     margin-top: 0;
     font-size: 24px;
-    color: #283747;
+    color: #1b396a;
   }
   
   .info p {
     margin-bottom: 10px;
   }
+  nav {
+    background-color: #1b396a;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
   
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  nav a:hover {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    padding: 3px;
+  }
