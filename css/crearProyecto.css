@@ -42,6 +42,7 @@ body {
   }
   
   form input[type="text"],
+  form select,
   form textarea,
   form input[type="date"],
   form input[type="number"] {

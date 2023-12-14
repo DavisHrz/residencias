@@ -12,6 +12,10 @@
             case 2:
                 require_once  $pathOperation.'/validation_register.php';
                 break;
+
+            case 3:
+                require_once  $pathOperation.'/validation_project.php';
+                break;
         }
         exit();
     }

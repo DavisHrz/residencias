@@ -1,19 +1,35 @@
+<?php
+    $proyectos = $company->getProjects();
+?>
+
 <link rel="stylesheet" href="css/empresaProyectos.css">
 <?php echo "<script>document.title = 'Proyectos vigentes';</script>"; ?>
 
     
     <main>
         <section class="proyectos">
+            <?php 
+                foreach($proyectos as $proyecto){ 
+                    $aplicants = $company->getApplicants($proyecto[0]);
+            ?>
             <div class="card">
-                <h2>Practicante Desarrollador Web</h2>
-                <p>Salario: $6,000</p>
-                <p>Ubicación: Tlajomulco de Zúñiga, Jal.</p>
-                <p>Sociedad Nacional Prom...</p>
+                <h2><?php echo $proyecto[1]; ?></h2>
+                <p><strong>Perfil a buscar:</strong><?php echo $proyecto[2]; ?></p>
+                <p><?php echo $proyecto[3]; ?></p>
                 <div class="botones">
-                    <button class="editar-btn">Editar</button>
-                    <button class="eliminar-btn">Eliminar</button>
+                    <!--- <button class="editar-btn">Editar</button> -->
+                    <!--- <button class="eliminar-btn">Eliminar</button> -->
                 </div>
+
+                <h3>Postulados</h3>
+                <?php foreach($aplicants as $aplicant) { ?>
+                <div class="botones">
+                        <p> <?php echo $aplicant[1]." ".$aplicant[2]." ".$aplicant[3]; ?> </p>
+                        <p><a href="">ver</a></p>
+                    </div>
+                <?php } ?>
             </div>
+            <?php } ?>
 
             <!-- Otros proyectos... -->
 

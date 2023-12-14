@@ -4,19 +4,6 @@
     <link rel="stylesheet" href="css/home.css">
     <?php echo "<script>document.title = 'Ofertas';</script>"; ?>
 
-<<<<<<< HEAD
-
-=======
-    <header>
-    <nav>
-      <a href="administrador.html">Seleccionar Periodo</a>
-      <a href="añadirPeriodo.html">Añadir Periodo</a>
-      <a href="home.html">Proyectos</a>
-      <a href="usersRequest.html">Solicitudes</a>
-      <a href="#">Cerrar Sesión</a>
-    </nav>
-    </header>
->>>>>>> 53c1d78f6d1311f4e369c94466f396d71c675995
     <main>
         <section class="vacantes">
             <h2>Vacantes</h2>

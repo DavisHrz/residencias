@@ -45,5 +45,64 @@
 	        return false;
         }
 
+        function getSemestres(){
+            $semestres = array();
+            $querySELECT = 'SELECT * FROM Semestres;';
+			if( $queryDB = mysqli_query($this->db, $querySELECT )){
+                while ( $result = mysqli_fetch_assoc($queryDB) ){
+                    $semestre = array();
+                    array_push($semestre, $result["IdSemestre"]);
+                    array_push($semestre, $result["Semestre"]);
+                    array_push($semestre, $result["Estado"]);
+
+                    array_push($semestres, $semestre);
+                }
+			}
+	        return $semestres;
+        }
+
+        function insertProject($id, $semestre, $nombre, $perfilRequerido, $tipoProyecto,  $descripcion, $fechaAsignacion, $fechaTermino, $horas, $cantidad){
+            $queryINSERT = 'INSERT INTO Proyectos VALUES (null, "'.$id.'", "'.$semestre.'", null, "'.$nombre.'", "'.$perfilRequerido.'", "'.$tipoProyecto.'", "'.$descripcion.'", "'.$fechaAsignacion.'", "'.$fechaTermino.'", "'.$horas.'", "'.$cantidad.'", now());';
+            if( mysqli_query($this->db, $queryINSERT )){
+                return true;
+			}
+	        return false;
+        }
+
+        function getProjects(){
+            $proyectos = array();
+            $querySELECT = 'SELECT * FROM Proyectos WHERE IdEmpresa = "'.$_SESSION["id2"].'"';
+            if( $queryDB = mysqli_query($this->db, $querySELECT)){
+                while ( $result = mysqli_fetch_assoc($queryDB) ){
+                    $proyecto = array();
+                    array_push($proyecto, $result["IdProyecto"]);
+                    array_push($proyecto, $result["Nombre"]);
+                    array_push($proyecto, $result["PerfilRequerido"]);
+                    array_push($proyecto, $result["Descripcion"]);
+                    array_push($proyecto, $result["CantidadResidentes"]);
+
+                    array_push($proyectos, $proyecto);
+                }
+			}
+	        return $proyectos;
+        }
+
+        function getApplicants($idProyecto){
+            $applicants = array();
+            $querySELECT = 'SELECT a.* FROM Proyectos AS p, ProyectosAsignados AS pa, Alumnos AS a WHERE p.IdProyecto = "'.$idProyecto.'" AND p.IdProyecto = pa.IdProyecto AND pa.IdAlumno = a.IdAlumno';
+            if( $queryDB = mysqli_query($this->db, $querySELECT)){
+                while ( $result = mysqli_fetch_assoc($queryDB) ){
+                    $apllicant = array();
+                    array_push($apllicant, $result["IdAlumno"]);
+                    array_push($apllicant, $result["Nombre"]);
+                    array_push($apllicant, $result["PrimerApellido"]);
+                    array_push($apllicant, $result["SegundoApellido"]);
+
+                    array_push($applicants, $apllicant);
+                }
+			}
+	        return $applicants;
+        }
+
     }
 ?>

@@ -54,7 +54,7 @@
 
         function getRequestRegister(){
             $users = array();
-            $querySELECT = 'SELECT u.*, r.Rol FROM Usuarios AS u, roles AS r WHERE u.IdRol = r.IdRol AND Confirmado = false;';
+            $querySELECT = 'SELECT u.*, r.Rol FROM Usuarios AS u, Roles AS r WHERE u.IdRol = r.IdRol AND Confirmado = false;';
 			if( $queryDB = mysqli_query($this->db, $querySELECT )){
                 while ( $result = mysqli_fetch_assoc($queryDB) ){
                     $user = array();
