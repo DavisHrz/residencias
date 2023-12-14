@@ -4,8 +4,8 @@
 <header>
     <h1>Bienvenido, Administrador</h1>
     <nav>
-      <a href="administrador.html">Inicio</a>
-      <a href="home.html">Ofertas</a>
+      <a href="administrador.html">Seleccionar Periodo</a>
+      <a href="home.html">Añadir Periodo</a>
       <a href="usersRequest.html">Solicitudes</a>
     </nav>
   </header>
