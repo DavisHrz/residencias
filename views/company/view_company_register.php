@@ -2,7 +2,10 @@
 <?php echo "<script>document.title = 'Registro de Empresa';</script>"; ?>
 
 <header>
-    <h1>Termina tu Registro </h1>
+    <h1>Termina tu Registro: </h1>
+    <nav>
+        <a href="#">Cerrar Sesión</a>
+      </nav>
   </header>
 
   <main>
