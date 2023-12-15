@@ -1,0 +1,82 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+header, footer {
+    background-color: #1b396a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+section.proyectos-postulados {
+    width: 60%;
+}
+
+.proyecto {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.proyecto h2 {
+    margin-bottom: 10px;
+}
+
+.proyecto p {
+    margin-bottom: 5px;
+}
+
+.proyecto button {
+    background-color: #009341;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.proyecto button:hover {
+    background-color: #03ad50;
+}
+
+footer {
+    background-color: #1b396a;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+}
+
+nav {
+    background-color: #1b396a;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    padding: 2px;
+}
