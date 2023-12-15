@@ -19,7 +19,7 @@ if(!empty($_GET["project"])){
     </section>
     <section class="evaluacion-residente">
       <h2>Evaluación del Residente</h2>
-      <?php if(empty($comments)){ ?>
+      <?php if( $comments[0] == "" ){ ?>
       <!-- Formulario para evaluar al residente al término de la residencia -->
       <form id="evaluacionForm" action="?operation=4" method="post">
         <label for="comportamiento">Comportamiento general sobre el proyecto:</label>
@@ -33,7 +33,7 @@ if(!empty($_GET["project"])){
 
         <button type="submit">Enviar Evaluación</button>
       </form>
-      <?php }else{ ?>
+      <?php } else{ ?>
         <label for="comportamiento"><strong>Comportamiento general sobre el proyecto:</strong>  <?php echo $comments[0] ?> </label>
         <br /> <br />
         <label for="calificacionAceptacion"><strong>Calificación de Aceptación (1-100):</strong>  <?php echo $comments[1] ?> </label>

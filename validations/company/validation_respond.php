@@ -1,32 +1,33 @@
 <?php
 
-    if( isset($_POST['comportamiento']) && !empty($_POST['comportamiento']) &&
-    isset($_POST['idProyecto']) && !empty($_POST['idProyecto']) &&
-    isset($_POST['idAlumno']) && !empty($_POST['idAlumno']) &&
-    isset($_POST['calificacionAceptacion']) && !empty($_POST['calificacionAceptacion']) ){
+    if( isset($_GET['valor']) && !empty($_GET['valor']) &&
+    isset($_GET['id']) && !empty($_GET['id']) &&
+    isset($_GET['idAlumno']) && !empty($_GET['idAlumno']) ){
 
-        $comportamiento = $_POST['comportamiento'];
-        $idProyecto = $_POST['idProyecto'];
-        $idAlumno = $_POST['idAlumno'];
-        $calificacionAceptacion = $_POST['calificacionAceptacion'];
+        $valor = $_GET['valor'];
+        $id = $_GET['id'];
+        $idAlumno = $_GET['idAlumno'];
 
-        if($company->setReseña($idProyecto, $idAlumno, $comportamiento, $calificacionAceptacion)){
-
+        if($valor == "aceptar"){
+            echo "1.- ".$id." 2.-".$idAlumno;
+            $company->setAccept($id, $idAlumno);
+            $company->setStudentToProject($id, $idAlumno);
             echo "<script>
                 Swal.fire({
-                    title: 'Registro exitoso',
+                    title: 'Alumno aceptado',
                     icon: 'success',
                     timer: 3000,
                     showConfirmButton: false
                 }).then((result) => {
-                    window.location.href = 'index.php?page=4&project=".$idProyecto."&student=".$idAlumno.";
+                    window.location.href = 'index.php?page=4';
                 });
             </script>";
             exit();
         }else{
+            $company->setReject($id);
             echo "<script>
                 Swal.fire({
-                    title: 'Hubo un problema con el servidor',
+                    title: 'Alumno rechazado',
                     icon: 'error',
                     timer: 3000,
                     showConfirmButton: false

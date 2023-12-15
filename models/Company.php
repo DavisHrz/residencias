@@ -117,8 +117,8 @@
         }
 
         function setReseña($idProyecto, $idAlumno, $comentario, $calificacion){
-            $queryINSERT = 'UPDATE ProyectosAsignados SET ComentarioDeLaEmpresa = "'.$comentario.'", CalificacionDeLaEmpresa = "'.$calificacion.'" WHERE IdProyecto = "'.$idProyecto.'" AND IdAlumno = "'.$idAlumno.'"; ';
-            if( mysqli_query($this->db, $queryINSERT )){
+            $queryUPDATE = 'UPDATE ProyectosAsignados SET ComentarioDeLaEmpresa = "'.$comentario.'", CalificacionDeLaEmpresa = "'.$calificacion.'" WHERE IdProyecto = "'.$idProyecto.'" AND IdAlumno = "'.$idAlumno.'"; ';
+            if( mysqli_query($this->db, $queryUPDATE )){
                 return true;
 			}
 	        return false;
@@ -137,7 +137,7 @@
 
         function getRequest(){
             $requests = array();
-            $querySELECT = 'SELECT p.Nombre AS NombreP, a.Nombre, a.PrimerApellido, a.SegundoApellido, a.Conocimiento, a.Promedio FROM SolicitudProyecto AS sp, Proyectos AS p, Empresas AS e, Alumnos AS a WHERE sp.IdProyecto = p.IdProyecto AND p.IdEmpresa = e.IdEmpresa AND sp.IdAlumno = a.IdAlumno AND e.IdEmpresa = "'.$_SESSION["id2"].'";';
+            $querySELECT = 'SELECT p.Nombre AS NombreP, a.Nombre, a.PrimerApellido, a.SegundoApellido, a.Conocimiento, a.Promedio, p.IdProyecto, a.IdAlumno FROM SolicitudProyecto AS sp, Proyectos AS p, Empresas AS e, Alumnos AS a WHERE sp.IdProyecto = p.IdProyecto AND p.IdEmpresa = e.IdEmpresa AND sp.IdAlumno = a.IdAlumno AND e.IdEmpresa = "'.$_SESSION["id2"].'" AND sp.Estado = "ESPERA";';
             if( $queryDB = mysqli_query($this->db, $querySELECT)){
                 while ( $result = mysqli_fetch_assoc($queryDB) ){
                     $request = array();
@@ -147,11 +147,37 @@
                     array_push($request, $result["SegundoApellido"]);
                     array_push($request, $result["Conocimiento"]);
                     array_push($request, $result["Promedio"]);
+                    array_push($request, $result["IdProyecto"]);
+                    array_push($request, $result["IdAlumno"]);
 
                     array_push($requests, $request);
                 }
 			}
 	        return $requests;
+        }
+
+        function setAccept($id, $idAlumno){
+            $queryUPDATE = 'UPDATE SolicitudProyecto SET ESTADO = "ACEPTADO" WHERE IdProyecto = "'.$id.'" AND IdAlumno = "'.$idAlumno.'" ';
+            if( mysqli_query($this->db, $queryUPDATE)){
+                return true;
+			}
+	        return false;
+        }
+
+        function setStudentToProject($id, $idAlumno){
+            $queryINSERT = 'INSERT INTO ProyectosAsignados VALUES (null,  "'.$id.'", "'.$idAlumno.'", null, null, null, null); ';
+            if( mysqli_query($this->db, $queryINSERT)){
+                return true;
+			}
+	        return false;
+        }
+
+        function setReject($id){
+            $queryUPDATE = 'UPDATE SolicitudProyecto SET ESTADO = "RECHAZADO" WHERE IdProyectoAsignado = "'.$id.'" ';
+            if( mysqli_query($this->db, $queryUPDATE)){
+                return true;
+			}
+	        return false;
         }
 
     }

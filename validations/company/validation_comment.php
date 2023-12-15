@@ -19,7 +19,7 @@
                     timer: 3000,
                     showConfirmButton: false
                 }).then((result) => {
-                    window.location.href = 'index.php?page=4&project=".$idProyecto."&student=".$idAlumno.";
+                    window.location.href = 'index.php?page=5&project=".$idProyecto."&student=".$idAlumno."';
                 });
             </script>";
             exit();

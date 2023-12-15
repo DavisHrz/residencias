@@ -21,7 +21,7 @@
                     <!--- <button class="eliminar-btn">Eliminar</button> -->
                 </div>
 
-                <h3>Postulados</h3>
+                <h3>Aceptados:</h3>
                 <?php foreach($aplicants as $aplicant) { ?>
                 <div class="botones">
                         <p> <?php echo $aplicant[1]." ".$aplicant[2]." ".$aplicant[3]; ?> </p>

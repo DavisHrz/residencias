@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `u117281852_rp02`.`Alumnos` (
   `PrimerApellido` VARCHAR(40) NULL DEFAULT CURRENT_TIMESTAMP,
   `SegundoApellido` VARCHAR(40) NULL,
   `Telefono` VARCHAR(10) NULL,
+  `Conocimiento` TEXT NULL,
   `Promedio` INT NULL,
   INDEX `fk_Alumnos_usuarios1_idx` (`IdUsuario` ASC) VISIBLE,
   PRIMARY KEY (`IdAlumno`),
@@ -143,15 +144,20 @@ CREATE TABLE IF NOT EXISTS `u117281852_rp02`.`Proyectos` (
   `IdProyecto` INT NOT NULL AUTO_INCREMENT,
   `IdEmpresa` INT NOT NULL,
   `IdSemestre` INT NOT NULL,
+  `IdAsesor` INT NULL,
   `Nombre` VARCHAR(255) NOT NULL,
+  `PerfilRequerido` TEXT NULL,
+  `TipoProyecto` VARCHAR(70) NULL,
+  `Descripcion` TEXT NULL,
   `Inicio` DATE NULL,
   `Termina` DATE NULL,
-  `Requisitos` TEXT NULL,
-  `Promedio` INT NULL,
   `Horas` INT NULL,
+  `CantidadResidentes` INT NULL,
+  `FechaCreacion` DATETIME NULL,
   PRIMARY KEY (`IdProyecto`),
   INDEX `fk_Proyectos_Empresas1_idx` (`IdEmpresa` ASC) VISIBLE,
   INDEX `fk_Proyectos_Semestres1_idx` (`IdSemestre` ASC) VISIBLE,
+  INDEX `fk_Proyectos_Asesores1_idx` (`IdAsesor` ASC) VISIBLE,
   CONSTRAINT `fk_Proyectos_Empresas1`
     FOREIGN KEY (`IdEmpresa`)
     REFERENCES `u117281852_rp02`.`Empresas` (`IdEmpresa`)
@@ -160,6 +166,11 @@ CREATE TABLE IF NOT EXISTS `u117281852_rp02`.`Proyectos` (
   CONSTRAINT `fk_Proyectos_Semestres1`
     FOREIGN KEY (`IdSemestre`)
     REFERENCES `u117281852_rp02`.`Semestres` (`IdSemestre`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Proyectos_Asesores1`
+    FOREIGN KEY (`IdAsesor`)
+    REFERENCES `u117281852_rp02`.`Asesores` (`IdAsesor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -170,25 +181,22 @@ CREATE TABLE IF NOT EXISTS `u117281852_rp02`.`Proyectos` (
 CREATE TABLE IF NOT EXISTS `u117281852_rp02`.`ProyectosAsignados` (
   `IdProyectoAsignado` INT NOT NULL AUTO_INCREMENT,
   `IdProyecto` INT NOT NULL,
-  `IdAsesor` INT NOT NULL,
   `IdAlumno` INT NOT NULL,
+  `ComentarioDelAlumno` TEXT NULL,
+  `CalificacionDelAlumno` INT NULL,
+  `ComentarioDeLaEmpresa` TEXT NULL,
+  `CalificacionDeLaEmpresa` INT NULL,
   PRIMARY KEY (`IdProyectoAsignado`),
-  INDEX `fk_ProyectosAsignados_Proyectos1_idx` (`IdProyecto` ASC) VISIBLE,
   INDEX `fk_ProyectosAsignados_Alumnos1_idx` (`IdAlumno` ASC) VISIBLE,
-  INDEX `fk_ProyectosAsignados_Asesores1_idx` (`IdAsesor` ASC) VISIBLE,
-  CONSTRAINT `fk_ProyectosAsignados_Proyectos1`
-    FOREIGN KEY (`IdProyecto`)
-    REFERENCES `u117281852_rp02`.`Proyectos` (`IdProyecto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_ProyectosAsignados_Proyectos1_idx` (`IdProyecto` ASC) VISIBLE,
   CONSTRAINT `fk_ProyectosAsignados_Alumnos1`
     FOREIGN KEY (`IdAlumno`)
     REFERENCES `u117281852_rp02`.`Alumnos` (`IdAlumno`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ProyectosAsignados_Asesores1`
-    FOREIGN KEY (`IdAsesor`)
-    REFERENCES `u117281852_rp02`.`Asesores` (`IdAsesor`)
+  CONSTRAINT `fk_ProyectosAsignados_Proyectos1`
+    FOREIGN KEY (`IdProyecto`)
+    REFERENCES `u117281852_rp02`.`Proyectos` (`IdProyecto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -199,25 +207,19 @@ CREATE TABLE IF NOT EXISTS `u117281852_rp02`.`ProyectosAsignados` (
 CREATE TABLE IF NOT EXISTS `u117281852_rp02`.`SolicitudProyecto` (
   `IdProyectoAsignado` INT NOT NULL AUTO_INCREMENT,
   `IdProyecto` INT NOT NULL,
-  `IdAsesor` INT NOT NULL,
   `IdAlumno` INT NOT NULL,
+  `Estado` VARCHAR(20) NULL,
   PRIMARY KEY (`IdProyectoAsignado`),
-  INDEX `fk_ProyectosAsignados_Proyectos1_idx` (`IdProyecto` ASC) VISIBLE,
-  INDEX `fk_ProyectosAsignados_Alumnos1_idx` (`IdAlumno` ASC) VISIBLE,
-  INDEX `fk_SolicitudProyecto_Asesores1_idx` (`IdAsesor` ASC) VISIBLE,
-  CONSTRAINT `fk_ProyectosAsignados_Proyectos10`
+  INDEX `fk_SolicitudProyecto_Proyectos1_idx` (`IdProyecto` ASC) VISIBLE,
+  INDEX `fk_SolicitudProyecto_Alumnos1_idx` (`IdAlumno` ASC) VISIBLE,
+  CONSTRAINT `fk_SolicitudProyecto_Proyectos1`
     FOREIGN KEY (`IdProyecto`)
     REFERENCES `u117281852_rp02`.`Proyectos` (`IdProyecto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ProyectosAsignados_Alumnos10`
+  CONSTRAINT `fk_SolicitudProyecto_Alumnos1`
     FOREIGN KEY (`IdAlumno`)
     REFERENCES `u117281852_rp02`.`Alumnos` (`IdAlumno`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_SolicitudProyecto_Asesores1`
-    FOREIGN KEY (`IdAsesor`)
-    REFERENCES `u117281852_rp02`.`Asesores` (`IdAsesor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 

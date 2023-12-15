@@ -17,8 +17,8 @@
         <p>Promedio: <?php echo $request[5]; ?></p>
 
         <div class="acciones">
-          <button class="aceptar" onclick="window.location.href='?operation=5&'">Aceptar</button>
-          <button class="rechazar" onclick="window.location.href='?operation=5&'">Rechazar</button>
+          <button class="aceptar" onclick="window.location.href='?operation=5&valor=aceptar&id=<?php echo $request[6]; ?>&idAlumno=<?php echo $request[7] ?>'">Aceptar</button>
+          <button class="rechazar" onclick="window.location.href='?operation=5&valor=rechazar&id=<?php echo $request[6]; ?>&idAlumno=<?php echo $request[7] ?>'">Rechazar</button>
         </div>
       </div>
       <?php } ?>
