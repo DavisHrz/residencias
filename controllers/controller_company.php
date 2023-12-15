@@ -30,7 +30,9 @@
 
 
     $pathView = './views/company';
-    $company->getData();
+    if($_SESSION["isFullData"]){
+        $company->getData();
+    }
 
     if($_SESSION['registerConfirm'] == false){
         require_once './views/view_wait.php';

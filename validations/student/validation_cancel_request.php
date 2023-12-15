@@ -1,32 +1,25 @@
 <?php
 
-    if( isset($_GET['valor']) && !empty($_GET['valor']) &&
-    isset($_GET['id']) && !empty($_GET['id']) &&
-    isset($_GET['idAlumno']) && !empty($_GET['idAlumno']) ){
+    if( isset($_GET['idProyecto']) && !empty($_GET['idProyecto']) ){
 
-        $valor = $_GET['valor'];
-        $id = $_GET['id'];
-        $idAlumno = $_GET['idAlumno'];
+        $idProyecto = $_GET['idProyecto'];
 
-        if($valor == "aceptar"){
-            $company->setAccept($id, $idAlumno);
-            $company->setStudentToProject($id, $idAlumno);
+        if($student->cancelRequest($idProyecto)){
             echo "<script>
                 Swal.fire({
-                    title: 'Alumno aceptado',
-                    icon: 'success',
+                    title: 'Postulación cancelada',
+                    icon: 'error',
                     timer: 3000,
                     showConfirmButton: false
                 }).then((result) => {
-                    window.location.href = 'index.php?page=4';
+                    window.location.href = 'index.php?page=3';
                 });
             </script>";
             exit();
         }else{
-            $company->setReject($id);
             echo "<script>
                 Swal.fire({
-                    title: 'Alumno rechazado',
+                    title: 'Hubo un error con el servidor',
                     icon: 'error',
                     timer: 3000,
                     showConfirmButton: false

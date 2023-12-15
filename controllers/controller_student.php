@@ -12,12 +12,23 @@
             case 2:
                 require_once  $pathOperation.'/validation_register.php';
                 break;
+
+            case 3:
+                require_once  $pathOperation.'/validation_request.php';
+                break;
+
+            case 4:
+                require_once  $pathOperation.'/validation_cancel_request.php';
+                break;
         }
         exit();
     }
 
 
     $pathView = './views/student';
+    if($_SESSION["isFullData"]){
+        $student->getData();
+    }
 
     if($_SESSION['registerConfirm'] == false){
         require_once './views/view_wait.php';
@@ -25,7 +36,7 @@
     }else if($_SESSION['isFullData'] == false){
         require_once $pathView.'/view_student_register.php';
 
-    }else  if($pageIsExist && $pageIsNotEmpty){
+    }else if($pageIsExist && $pageIsNotEmpty){
         $pageNumber = $_GET['page'];
         require_once $pathView.'/view_header.php';
 
@@ -36,6 +47,10 @@
             
             case 2:
                 require_once  $pathView.'/view_student_offers.php';
+                break;
+
+            case 3:
+                require_once  $pathView.'/view_student_postulations.php';
                 break;
             
             default:
