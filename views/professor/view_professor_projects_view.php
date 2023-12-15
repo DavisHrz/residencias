@@ -2,14 +2,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/home.css">
-    <?php echo "<script>document.title = 'Ofertas';</script>"; ?>
+    <?php echo "<script>document.title = 'Proyectos';</script>"; ?>
 
     <header>
-    <nav>
+        <nav>
             <a href="home.html">Proyectos</a>
-            <a href="alumno.html">Mi cuenta</a>
-            <a href="alumnoPostulaciones.html">Mis postulaciones</a>
-            <a href="?operation=1">Cerrar sesión</a>
+            <a href="perfilProfessor.html">Mi Cuenta</a>
+            <a href="professorPostulaciones.html">Mis postulaciones</a>
+            <a href="#">Cerrar Sesión</a>
         </nav>
     </header>
     <main>

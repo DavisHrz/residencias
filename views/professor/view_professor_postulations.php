@@ -1,15 +1,13 @@
 <link rel="stylesheet" href="css/alumnoPostulaciones.css">
-<?php echo "<script>document.title = 'Perfil';</script>"; ?>
+<?php echo "<script>document.title = 'Mis postulaciones';</script>"; ?>
 
 <header>
     <h1>Proyectos Postulados</h1>
     <nav>
-        <nav>
-            <a href="home.html">Proyectos</a>
-            <a href="alumno.html">Mi cuenta</a>
-            <a href="alumnoPostulaciones.html">Mis postulaciones</a>
-            <a href="?operation=1">Cerrar sesión</a>
-        </nav>
+        <a href="home.html">Proyectos</a>
+        <a href="perfilProfessor.html">Mi Cuenta</a>
+        <a href="professorPostulaciones.html">Mis postulaciones</a>
+        <a href="#">Cerrar Sesión</a>
     </nav>
   </header>
 

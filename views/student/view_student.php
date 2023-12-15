@@ -7,7 +7,6 @@
 <header>
     <h1>Bienvenido, Estudiante</h1>
     <nav>
-        <a href="index.html">Inicio</a>
         <a href="home.html">Proyectos</a>
         <a href="alumno.html">Mi cuenta</a>
         <a href="alumnoPostulaciones.html">Mis postulaciones</a>
