@@ -26,19 +26,10 @@ form textarea {
   width: 100%;
 }
 
-form button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #009341;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-form button:hover {
-  background-color: #03ad50;
+form label,
+form input,
+form textarea {
+  width: 100%;
 }
 footer{
   margin-top: 169px;

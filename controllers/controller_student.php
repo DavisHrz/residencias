@@ -20,6 +20,10 @@
             case 4:
                 require_once  $pathOperation.'/validation_cancel_request.php';
                 break;
+
+            case 5:
+                require_once  $pathOperation.'/validation_comment.php';
+                break;
         }
         exit();
     }
@@ -51,6 +55,10 @@
 
             case 3:
                 require_once  $pathView.'/view_student_postulations.php';
+                break;
+        
+            case 4:
+                require_once  $pathView.'/view_student_company_profile.php';
                 break;
             
             default:

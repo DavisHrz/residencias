@@ -119,5 +119,48 @@
 	        return false;
         }
 
+        function getResident(){
+            $residencia = array();
+            $querySELECT = 'SELECT * FROM ProyectosAsignados AS pa, Proyectos AS p, Empresas AS e, Usuarios AS u WHERE IdAlumno = "'.$_SESSION["id2"].'" AND pa.IdProyecto = p.IdProyecto AND p.IdEmpresa = e.IdEmpresa AND e.IdUsuario = u.IdUsuario;';
+			if( $queryDB = mysqli_query($this->db, $querySELECT )){
+                if($result = mysqli_fetch_assoc($queryDB)){
+                    array_push($residencia, $result["IdProyectoAsignado"]);
+                    array_push($residencia, $result["IdProyecto"]);
+                    array_push($residencia, $result["RazonSocial"]);
+                    array_push($residencia, $result["GiroEmpresa"]);
+                    array_push($residencia, $result["Direccion"]);
+                    array_push($residencia, $result["Telefono"]);
+                    array_push($residencia, $result["Correo"]);
+                    array_push($residencia, $result["NombreCompletoAsesor"]);
+                    array_push($residencia, $result["CorreoAsesor"]);
+                    array_push($residencia, $result["TelefonoAsesor"]);
+                    array_push($residencia, $result["Nombre"]);
+                    array_push($residencia, $result["TipoProyecto"]);
+                    array_push($residencia, $result["Descripcion"]);
+                }
+			}
+	        return $residencia;
+        }
+
+        function setComment($proyectoAsignado, $comentario, $calificacion){
+            $queryUPDATE = 'UPDATE ProyectosAsignados SET ComentarioDelAlumno = "'.$comentario.'", CalificacionDelAlumno = "'.$calificacion.'" WHERE IdProyectoAsignado = "'.$proyectoAsignado.'" ';
+            if( mysqli_query($this->db, $queryUPDATE )){
+                return true;
+			}
+	        return false;
+        }
+
+        function getComment($proyectoAsignado){
+            $comentarios = array();
+            $queryUPDATE = 'SELECT * FROM ProyectosAsignados WHERE IdProyectoAsignado = "'.$proyectoAsignado.'" ';
+            if( $queryDB = mysqli_query($this->db, $queryUPDATE )){
+                $result = mysqli_fetch_assoc($queryDB);
+                array_push($comentarios, $result["ComentarioDelAlumno"]);
+                array_push($comentarios, $result["CalificacionDelAlumno"]);
+			}
+	        return $comentarios;
+        }
+
+
     }
 ?>
