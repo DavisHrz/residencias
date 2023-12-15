@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/home.css">
     <?php echo "<script>document.title = 'Ofertas';</script>"; ?>
 
-
     <main>
         <section class="vacantes">
             <h2>Vacantes</h2>

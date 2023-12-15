@@ -4,7 +4,7 @@
 <header>
     <h1>Perfil de Empresa</h1>
     <nav>
-            <a href="home.html">Ofertas</a>
+            <a href="home.html">Proyectos</a>
             <a href="alumno.html">Mi cuenta</a>
             <a href="alumnoPostulaciones.html">Mis postulaciones</a>
             <a href="?operation=1">Cerrar sesión</a>
