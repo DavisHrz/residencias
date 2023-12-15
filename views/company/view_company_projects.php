@@ -25,7 +25,7 @@
                 <?php foreach($aplicants as $aplicant) { ?>
                 <div class="botones">
                         <p> <?php echo $aplicant[1]." ".$aplicant[2]." ".$aplicant[3]; ?> </p>
-                        <p><a href="">ver</a></p>
+                        <p><a href="?page=5&project=<?php echo $proyecto[0]; ?>&student=<?php echo$aplicant[0]; ?>">ver</a></p>
                     </div>
                 <?php } ?>
             </div>

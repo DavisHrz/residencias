@@ -1,41 +1,43 @@
+<?php
+$aplicant = ["", "", ""];
+if(!empty($_GET["student"])){
+    $aplicant = $company->getApplicant($_GET["student"]);
+}
+
+if(!empty($_GET["project"])){
+    $comments = $company->getComment($_GET["project"], $_GET["student"]);
+} 
+?>
+
 <link rel="stylesheet" href="css/perfilAlumno.css">
 <?php echo "<script>document.title = 'Perfil';</script>"; ?>
 
-<header>
-    <h1>Perfil de Alumno</h1>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="home.html">Ofertas</a>
-        <a href="perfilEmpresa.html">Mi cuenta</a>
-        <a href="crearProyecto.html">Nuevo Proyecto</a>
-        <a href="#">Cerrar sesión</a>
-      </nav>
-  </header>
 
   <main>
     <section class="conocimientos">
-      <h2>Conocimientos de Software y Habilidades Blandas</h2>
-      <div class="info">
-        <p><strong>Software:</strong> HTML, CSS, JavaScript, Python</p>
-        <p><strong>Habilidades Blandas:</strong> Comunicación, Trabajo en equipo, Resolución de problemas</p>
-      </div>
-      <h2>Promedio</h2>
-      <div class="info">
-        <p><strong>Promedio:</strong> 90</p>
-      </div>
+      <h1 style="text-align: center;" ><?php echo $aplicant[0]." ".$aplicant[1]." ".$aplicant[2] ?></h1>
     </section>
     <section class="evaluacion-residente">
       <h2>Evaluación del Residente</h2>
+      <?php if(empty($comments)){ ?>
       <!-- Formulario para evaluar al residente al término de la residencia -->
-      <form id="evaluacionForm">
+      <form id="evaluacionForm" action="?operation=4" method="post">
         <label for="comportamiento">Comportamiento general sobre el proyecto:</label>
-        <textarea id="comportamiento" name="comportamiento" rows="4" required></textarea>
+        <textarea id="comportamiento" name="comportamiento" rows="4" required ></textarea>
 
         <label for="calificacionAceptacion">Calificación de Aceptación (1-100):</label>
         <input type="number" id="calificacionAceptacion" name="calificacionAceptacion" min="1" max="100" required>
 
+        <input type="text" name="idProyecto" value="<?php echo $_GET["project"]; ?> " hidden>
+        <input type="text" name="idAlumno" value="<?php echo $_GET["student"]; ?> " hidden>
+
         <button type="submit">Enviar Evaluación</button>
       </form>
+      <?php }else{ ?>
+        <label for="comportamiento"><strong>Comportamiento general sobre el proyecto:</strong>  <?php echo $comments[0] ?> </label>
+        <br /> <br />
+        <label for="calificacionAceptacion"><strong>Calificación de Aceptación (1-100):</strong>  <?php echo $comments[1] ?> </label>
+      <?php } ?>
     </section>
   </main>
 

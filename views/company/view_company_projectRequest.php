@@ -1,31 +1,27 @@
+<?php
+  $requests = $company->getRequest();
+?>
+
 <link rel="stylesheet" href="css/projectRequest.css">
 <?php echo "<script>document.title = 'Postulaciones';</script>"; ?>
 
-<header>
-    <h1>Postulaciones en Proyectos</h1>
-    <nav>
-        <a href="home.html">Ofertas</a>
-        <a href="perfilEmpresa.html">Mi cuenta</a>
-        <a href="crearProyecto.html">Nuevo Proyecto</a>
-        <a href="projectRequest.html">Postulaciones</a>
-        <a href="#">Cerrar sesión</a>
-    </nav>
-  </header>
 
   <main>
     <section class="postulaciones">
+      <?php foreach($requests as $request) { ?>
       <div class="postulacion">
         <h2>Postulación de Estudiante</h2>
-        <p>Nombre del Proyecto: <strong>Nombre del Proyecto</strong></p>
-        <p>Nombre del Estudiante: <strong>Nombre del Estudiante</strong></p>
-        <p>Conocimientos de software: Conocimiento A, Conocimiento B</p>
-        <p>Habilidades blandas: Habilidad A, Habilidad B</p>
-        <p>Promedio: 85</p>
+        <p>Nombre del Proyecto: <strong><?php echo $request[0]; ?></strong></p>
+        <p>Nombre del Estudiante: <strong><?php echo $request[1]." ".$request[2]." ".$request[3]; ?></strong></p>
+        <p>Conocimientos: <?php echo $request[4]; ?></p>
+        <p>Promedio: <?php echo $request[5]; ?></p>
+
         <div class="acciones">
-          <button class="aceptar">Aceptar</button>
-          <button class="rechazar">Rechazar</button>
+          <button class="aceptar" onclick="window.location.href='?operation=5&'">Aceptar</button>
+          <button class="rechazar" onclick="window.location.href='?operation=5&'">Rechazar</button>
         </div>
       </div>
+      <?php } ?>
 
       <!-- Otras postulaciones aquí -->
     </section>

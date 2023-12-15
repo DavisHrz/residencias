@@ -104,5 +104,55 @@
 	        return $applicants;
         }
 
+        function getApplicant($id){
+            $aplicant = array();
+            $querySELECT = 'SELECT * FROM Alumnos WHERE IdAlumno = "'.$id.'";';
+            if( $queryDB = mysqli_query($this->db, $querySELECT)){
+                $result = mysqli_fetch_assoc($queryDB);
+                array_push($aplicant, $result["Nombre"]);
+                array_push($aplicant, $result["PrimerApellido"]);
+                array_push($aplicant, $result["SegundoApellido"]);
+			}
+	        return $aplicant;
+        }
+
+        function setReseña($idProyecto, $idAlumno, $comentario, $calificacion){
+            $queryINSERT = 'UPDATE ProyectosAsignados SET ComentarioDeLaEmpresa = "'.$comentario.'", CalificacionDeLaEmpresa = "'.$calificacion.'" WHERE IdProyecto = "'.$idProyecto.'" AND IdAlumno = "'.$idAlumno.'"; ';
+            if( mysqli_query($this->db, $queryINSERT )){
+                return true;
+			}
+	        return false;
+        }
+
+        function getComment($idProyecto, $idAlumno){
+            $comentario = array();
+            $querySELECT = 'SELECT * FROM ProyectosAsignados WHERE IdProyecto = "'.$idProyecto.'" AND IdAlumno = "'.$idAlumno.'";';
+            if( $queryDB = mysqli_query($this->db, $querySELECT)){
+                $result = mysqli_fetch_assoc($queryDB);
+                array_push($comentario, $result["ComentarioDeLaEmpresa"]);
+                array_push($comentario, $result["CalificacionDeLaEmpresa"]);
+			}
+	        return $comentario;
+        }
+
+        function getRequest(){
+            $requests = array();
+            $querySELECT = 'SELECT p.Nombre AS NombreP, a.Nombre, a.PrimerApellido, a.SegundoApellido, a.Conocimiento, a.Promedio FROM SolicitudProyecto AS sp, Proyectos AS p, Empresas AS e, Alumnos AS a WHERE sp.IdProyecto = p.IdProyecto AND p.IdEmpresa = e.IdEmpresa AND sp.IdAlumno = a.IdAlumno AND e.IdEmpresa = "'.$_SESSION["id2"].'";';
+            if( $queryDB = mysqli_query($this->db, $querySELECT)){
+                while ( $result = mysqli_fetch_assoc($queryDB) ){
+                    $request = array();
+                    array_push($request, $result["NombreP"]);
+                    array_push($request, $result["Nombre"]);
+                    array_push($request, $result["PrimerApellido"]);
+                    array_push($request, $result["SegundoApellido"]);
+                    array_push($request, $result["Conocimiento"]);
+                    array_push($request, $result["Promedio"]);
+
+                    array_push($requests, $request);
+                }
+			}
+	        return $requests;
+        }
+
     }
 ?>

@@ -16,6 +16,14 @@
             case 3:
                 require_once  $pathOperation.'/validation_project.php';
                 break;
+
+            case 4:
+                require_once  $pathOperation.'/validation_comment.php';
+                break;
+
+            case 5:
+                //require_once  $pathOperation.'/validation_.php';
+                break;
         }
         exit();
     }
@@ -47,6 +55,16 @@
             case 3:
                 require_once $pathView.'/view_header.php';
                 require_once  $pathView.'/view_company_projects.php';
+                break;
+                
+            case 4:
+                require_once $pathView.'/view_header.php';
+                require_once $pathView.'/view_company_projectRequest.php';
+                break;
+
+            case 5:
+                require_once $pathView.'/view_header.php';
+                require_once $pathView.'/view_company_student_Profile.php';
                 break;
             
             default:
