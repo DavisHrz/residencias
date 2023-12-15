@@ -10,17 +10,17 @@
             $this->db = $con->connect();
         }
 
-        function register($id, $controlNumber, $name, $lastName, $secondSurName, $phone, $average){
-            $queryINSERT = 'INSERT INTO Alumnos VALUES (null, "'.$id.'", "'.$controlNumber.'", "'.$name.'", "'.$lastName.'", "'.$secondSurName.'", "'.$phone.'", "'.$average.'");';
+        function register($controlNumber, $name, $lastName, $secondSurName, $phone, $knowledge, $average){
+            $queryINSERT = 'INSERT INTO Alumnos VALUES (null, "'.$_SESSION['id'].'", "'.$controlNumber.'", "'.$name.'", "'.$lastName.'", "'.$secondSurName.'", "'.$phone.'", "'.$knowledge.'", "'.$average.'");';
 			if( mysqli_query($this->db, $queryINSERT )){
-                $this->setFullData($id);
+                $this->setFullData();
                 return true;
 			}
 	        return false;
         }
 
-        function setFullData($id){
-            $queryUPDATE = 'UPDATE Usuarios SET DatosLlenos = true WHERE IdUsuario = "'.$id.'";';
+        function setFullData(){
+            $queryUPDATE = 'UPDATE Usuarios SET DatosLlenos = true WHERE IdUsuario = "'.$_SESSION['id'].'";';
             if( mysqli_query($this->db, $queryUPDATE )){
                 return true;
 			}

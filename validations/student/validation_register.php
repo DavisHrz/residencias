@@ -5,6 +5,7 @@
     isset($_POST['lastName']) && !empty($_POST['lastName']) &&
     isset($_POST['secondSurName']) && !empty($_POST['secondSurName']) &&
     isset($_POST['phoneNumber']) && !empty($_POST['phoneNumber']) && 
+    isset($_POST['knowledge']) && !empty($_POST['knowledge']) && 
     isset($_POST['average']) && !empty($_POST['average']) ){
 
         $controlNumber = $_POST['controlNumber'];
@@ -12,9 +13,10 @@
         $lastName = $_POST['lastName'];
         $secondSurName = $_POST['secondSurName'];
         $phone = $_POST['phoneNumber'];
+        $knowledge = $_POST['knowledge'];
         $average = $_POST['average'];
 
-        if($student->register($_SESSION['id'], $controlNumber,  $name, $lastName, $secondSurName, $phone, $average)){
+        if($student->register($controlNumber,  $name, $lastName, $secondSurName, $phone, $knowledge, $average)){
             $_SESSION["isFullData"] = true;
 
             echo "<script>

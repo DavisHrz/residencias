@@ -27,6 +27,9 @@
         <label for="phoneNumber">Telefono</label>
         <input type="tel" id="phoneNumber" name="phoneNumber" required>
 
+        <label for="knowledge">Conocimiento</label>
+        <input type="text" id="knowledge" name="knowledge" required>
+
         <label for="average">Promedio</label>
         <input type="number" id="average" name="average" required>
 

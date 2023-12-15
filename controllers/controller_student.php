@@ -30,6 +30,7 @@
 
         switch ($pageNumber) {
             case 1:
+                require_once $pathView.'/view_header.php';
                 require_once $pathView.'/view_student.php';
                 break;
             
@@ -38,10 +39,12 @@
                 break;
             
             default:
+                require_once $pathView.'/view_header.php';
                 require_once $pathView.'/view_student.php';
                 break;
         }
     }else{
+        require_once $pathView.'/view_header.php';
         require_once $pathView.'/view_student.php';
     }
 
