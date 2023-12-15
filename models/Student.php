@@ -27,5 +27,23 @@
 	        return false;
         }
 
+        function getProjects(){
+            $proyectos = array();
+            $querySELECT = 'SELECT * FROM Proyectos;';
+            if( $queryDB = mysqli_query($this->db, $querySELECT)){
+                while ( $result = mysqli_fetch_assoc($queryDB) ){
+                    $proyecto = array();
+                    array_push($proyecto, $result["IdProyecto"]);
+                    array_push($proyecto, $result["Nombre"]);
+                    array_push($proyecto, $result["PerfilRequerido"]);
+                    array_push($proyecto, $result["Descripcion"]);
+                    array_push($proyecto, $result["CantidadResidentes"]);
+
+                    array_push($proyectos, $proyecto);
+                }
+			}
+	        return $proyectos;
+        }
+
     }
 ?>

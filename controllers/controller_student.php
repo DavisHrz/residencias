@@ -27,19 +27,18 @@
 
     }else  if($pageIsExist && $pageIsNotEmpty){
         $pageNumber = $_GET['page'];
+        require_once $pathView.'/view_header.php';
 
         switch ($pageNumber) {
             case 1:
-                require_once $pathView.'/view_header.php';
                 require_once $pathView.'/view_student.php';
                 break;
             
             case 2:
-                //require_once  $pathView.'/view_register.php';
+                require_once  $pathView.'/view_student_offers.php';
                 break;
             
             default:
-                require_once $pathView.'/view_header.php';
                 require_once $pathView.'/view_student.php';
                 break;
         }

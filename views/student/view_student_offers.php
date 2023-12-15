@@ -4,15 +4,7 @@
     <link rel="stylesheet" href="css/home.css">
     <?php echo "<script>document.title = 'Ofertas';</script>"; ?>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="home.html">Ofertas</a></li>
-                <li><a href="alumno.html">Mi Cuenta</a></li>
-                <li><a href="#">Cerrar Sesión</a></li>
-            </ul>
-        </nav>
-    </header>
+
     <main>
         <section class="vacantes">
             <h2>Vacantes</h2>
